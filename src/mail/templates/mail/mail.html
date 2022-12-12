@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter EMAIL</title>
+</head>
+<body>
+<form action="{% url 'mail:save-mail' %}" method="post">
+    {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+
+</body>
+</html>

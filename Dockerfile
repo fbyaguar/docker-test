@@ -15,12 +15,12 @@ RUN apt-get update \
 RUN apt-get upgrade -y && apt-get install postgresql gcc python3-dev musl-dev -y
 
 # Copy project
-COPY . .
+COPY . /test-drf
 # RUN sed -i 's/\r$//g' entrypoint.sh
 # RUN chmod +x entrypoint.sh
 
 # Install dependencies
 RUN pip install -r requirements.txt
 
-# # run entrypoint.sh
-# ENTRYPOINT [ "sh", "entrypoint.sh" ]
+# run entrypoint.sh
+ENTRYPOINT [ "sh", "entrypoint.sh" ]

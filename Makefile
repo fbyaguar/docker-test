@@ -20,10 +20,16 @@ build:
 	docker-compose build
 
 up:
-	docker-compose --env-file ./.env up -d
+	docker-compose up -d
+
+celery:
+	celery -A src worker -l info
+
+celery-beat:
+	celery -A src beat -l info
 
 shell:
-	docker exec -ti test-drf_web_1 /bin/bash
+	docker exec -ti django_web /bin/bash
 
 down:
 	docker-compose down
