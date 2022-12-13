@@ -35,8 +35,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "src.firebase_auth",
     "src.mail",
+    "src.customers",
 ]
 
 MIDDLEWARE = [
@@ -105,7 +105,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'firebase_auth.authentication.FirebaseAuthentication',
     ),
 }
 
