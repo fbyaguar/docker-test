@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-from src.customers.fields import NameField
 from src.customers.models import Profile, Technology
 
 
@@ -12,8 +11,12 @@ class TechnologySerializer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(read_only=True, default=serializers.CurrentUserDefault())
-    technologies = NameField(many=True, queryset=Technology.objects.all())
+    user = serializers.StringRelatedField()
+    technologies = serializers.SlugRelatedField(
+        slug_field="name",
+        queryset=Technology.objects.all(),
+        many=True
+    )
 
     class Meta:
         model = Profile
